@@ -1,0 +1,116 @@
+### Danh sách sản phẩm
+GET http://127.0.0.1:8000/api/sanpham/
+
+### Tìm sản phẩm
+GET http://127.0.0.1:8000/api/timsanpham/dưa
+### Danh sách sản phẩm THEO LOẠI
+GET http://127.0.0.1:8000/api/sanphamtheoloai/Trái cây
+### Chi tiết sản phẩm
+GET http://127.0.0.1:8000/api/chitietsanpham/917761117
+### Danh sách đơn hàng
+GET http://127.0.0.1:8000/api/donhang/531231286
+### Thông tin khách hàng
+GET http://127.0.0.1:8000/api/khachhang/
+
+
+### Thêm thông tin vào Đặt hàng và Chi tiết đặt hàng
+POST http://127.0.0.1:8000/api/dathang/
+Content-Type: application/json;charset=UTF-8
+
+{
+
+    "TENDANGNHAP": "noone",
+    "KHACHHANG_ID": 1,
+    "DATHANG_TRANGTHAI": "Đang giao",
+    "DATHANG_NGAYDAT": "01/05/2004",
+    "DATHANG_NGAYGIAO": "01/05/2004",
+    "list":[
+        {
+            "SANPHAM_ID": 324,
+            "CHITIETDATHANG_SOLUONG": 1
+        },
+         {
+            "SANPHAM_ID": 333133121,
+            "CHITIETDATHANG_SOLUONG": 1
+        }
+    ]
+}
+### Thêm vào giỏ hàng 1 sản phẩm
+POST http://127.0.0.1:8000/api/themgiohang/
+Content-Type: application/json;charset=UTF-8
+
+{
+    "KHACHHANG_ID":1,
+    "SANPHAM_ID":324,
+    "GIOHANG_SOLUONG":2
+
+}
+### Xóa giỏ hàng 1 sản phẩm /{khachhang_id}/{sanpham_id}
+GET http://127.0.0.1:8000/api/xoagiohang/1/324
+
+### Xem giỏ hàng của khách /{khachhang_id}
+GET http://127.0.0.1:8000/api/xemgiohang/1/
+
+###Đăng ký
+POST http://127.0.0.1:8000/api/dangky/
+Content-Type: application/json;charset=UTF-8
+
+{
+    "KHACHHANG_TEN": "Tên mới",
+    "KHACHHANG_SDT": 1213200,
+    "KHACHHANG_PHAI": "Nam",
+    "KHACHHANG_DIACHI": "dia chỉ cụ thể",
+    "KHACHHANG_NGAYSINH": "01/05/2004",
+    "KHACHHANG_MATKHAU": "1",
+    "KHACHHANG_ANH_URL":"images/avatarcustomer/noname.jpg"
+}
+###Đăng nhập
+POST http://127.0.0.1:8000/api/dangnhap/123/132
+Content-Type: application/json;charset=UTF-8
+### Chi tiết đơn hàng
+GET http://127.0.0.1:8000/api/chitietdathang/531231286
+### Xóa đơn hàng
+POST http://127.0.0.1:8000/api/xoadon/531231262
+
+### Hủy đơn hàng
+POST http://127.0.0.1:8000/api/huydon/531231290
+
+###Đánh giá
+POST http://127.0.0.1:8000/api/danhgia/
+Content-Type: application/json;charset=UTF-8
+
+{
+    "KHACHHANG_ID": 1,
+    "SANPHAM_ID":324,
+    "DANHGIA_NOIDUNG":"ng",
+    "DANHGIA_SOSAO":"3.0"
+
+}
+###Xem đánh giá
+GET http://127.0.0.1:8000/api/xemdanhgia/324
+
+###Kiểm tra đánh giá
+GET http://127.0.0.1:8000/api/kiemtradanhgia/324/1
+### Cập nhật thông tin
+POST http://127.0.0.1:8000/api/capnhat/
+Content-Type: application/json;charset=UTF-8
+
+{
+    "KHACHHANG_ID": 1,
+    "KHACHHANG_TEN": "thie32",
+    "KHACHHANG_PHAI": "Nam",
+    "KHACHHANG_DIACHI": "adadas",
+    "KHACHHANG_NGAYSINH": "01/05/2004"
+
+}
+
+### Đổi mật khẩu
+POST http://127.0.0.1:8000/api/doimatkhau/
+Content-Type: application/json;charset=UTF-8
+
+{
+    "KHACHHANG_ID": 1,
+    "KHACHHANG_MATKHAU": "1"
+
+}
+
